@@ -1,0 +1,140 @@
+what can a client ask from the seller
+	-car brand
+	-car price
+	-car colour
+	-mileage
+	-no of seats
+	-warrenty/secondhand
+	-fuel type
+	-roof type(x)
+	
+	
+what are the possible things client and salesman can talk about which are also related to cars
+
+----------------------------Introduction-----------------------------------------------------------------
+
+	-is this Carwale showroom
+	-do you work here
+	-
+
+-----------------------------window shopping-------------------------------------------------------------
+	-ohh i am just looking around
+		just looking around
+		i am with someone 
+		i am not buying
+-----------------------------buying car------------------------------------------------------------------
+price buying
+	-i am looking for car between $ and $
+		i am looking for car around $
+		i am looking for car below $
+		i am looking for car same as my old car
+		can you show me + " "
+
+seat buying
+	-looking for this type of car
+		can you show me this type of car
+
+fuel buying
+	-looking for a petrol car 
+		do you have any petrol cars
+		show me petrol cars
+
+colour buying
+	-looking for this colour car
+
+car parts
+	-looking for car parts
+		do you have car parts
+
+all details
+	-tell me more about this car
+		details about this car
+
+cost of the car
+	-what is the cost
+		how much for this car
+		what is the price
+	-can you reduce the cost
+	
+buying confusion
+	-i am confused between this car and that car
+	-what are all the options i can pay with
+		
+------------------------selling car---------------------------------------------------------------------
+
+asking to sell
+	-i wanted to sell my car here
+		can i sell my car here
+		is this where is sell my car?
+		is there any way i can sell my car here?
+		do you sell cars here
+		do you buy or sell cars here
+	
+procedure to sell
+	-what will i have to do to sell my car here
+		what papers will i need to sell my car here
+	-are these papers needed to sell the car?
+	
+	
+------------------future cars---------------------------------------------------------------------------
+
+	-are there any more cars
+		cars other than these
+		any hidden cars
+		
+	-when will these new cars come
+		how long will it take
+		at what date
+		
+		
+/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+
+1. CC Coordinating conjunction
+2. CD Cardinal number
+3. DT Determiner
+4. EX Existential there
+5. FW Foreign word
+6. IN Preposition or subordinating conjunction
+7. JJ Adjective
+8. JJR Adjective, comparative
+9. JJS Adjective, superlative
+10. LS List item marker
+11. MD Modal
+12. NN Noun, singular or mass
+13. NNS Noun, plural
+14. NNP Proper noun, singular
+15. NNPS Proper noun, plural
+16. PDT Predeterminer
+17. POS Possessive ending
+18. PRP Personal pronoun
+19. PRP$ Possessive pronoun
+20. RB Adverb
+21. RBR Adverb, comparative
+22. RBS Adverb, superlative
+23. RP Particle
+24. SYM Symbol
+25. TO to
+26. UH Interjection
+27. VB Verb, base form
+28. VBD Verb, past tense
+29. VBG Verb, gerund or present participle
+30. VBN Verb, past participle
+31. VBP Verb, non-3rd person singular present
+32. VBZ Verb, 3rd person singular present
+33. WDT Wh-determiner
+34. WP Wh-pronoun
+35. WP$ Possessive wh-pronoun
+36. WRB Wh-adverb	
+		
+		
+\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+
+SQL Query generator
+
+action:- select, update into, delete
+Table name:- from carwale.car_info, from carwale.client_info
+variables:- where in(), 
+
+
+INSERT INTO carwale.car_info (serialno, brand, model, colour, fueltype, price, is_availablity, dateofarrival) VALUES (10000, 'car', 'model', 'colour', 'fueltype', 15555555, false, '1999-01-15');
+

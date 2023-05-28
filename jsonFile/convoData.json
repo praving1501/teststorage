@@ -1,0 +1,25 @@
+{
+  "buy": {
+    "buy1": ["buy"]
+  },
+  "sell": {
+    "sell1": ["sell"]
+  },
+  "looking": {
+    "looking1": ["looking", "around"]
+  },
+  "between": {
+    "between1": ["looking", "around"],
+    "between2": ["looking", "below"]
+  },
+  "fuel": {
+  	"fuel1": ["petrol"],
+  	"fuel2": ["diesel"],
+  	"fuel3": ["electric"],
+  	"fuel4": ["hybrid"]
+  },
+  "colour": {
+  	"colour1": [],
+  	"colour2": []
+  }
+}
