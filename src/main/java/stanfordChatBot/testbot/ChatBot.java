@@ -1,5 +1,6 @@
 package stanfordChatBot.testbot;
 
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
@@ -25,9 +26,8 @@ public class ChatBot {
 	}
 
 	public void talk(String text) {
-
+		
 		CoreDocument coreDocument = new CoreDocument(text);
-
 		stanfordCoreNLP.annotate(coreDocument);
 		List<CoreLabel> sentence = coreDocument.tokens();
 		analyse(sentence);
@@ -44,26 +44,53 @@ public class ChatBot {
 
 			String word = null;
 			String POS = (String) token.get(CoreAnnotations.PartOfSpeechAnnotation.class);
-//			System.out.println(POS + " : " + token.get(CoreAnnotations.TextAnnotation.class));
 			if (POS.equals("NN") || POS.equals("VBG") || POS.equals("VB") || POS.equals("IN") || POS.equals("JJ") || POS.equals("NNS") || POS.equals("DT")) {
 				word = token.get(CoreAnnotations.TextAnnotation.class);
 				convo.add(word);
 
 			}
-			if (POS.equals("CD")) {
+			if (POS.equals("CD") || token.get(CoreAnnotations.TextAnnotation.class).equals("lakh") || token.get(CoreAnnotations.TextAnnotation.class).equals("lakhs")) {
 				word = token.get(CoreAnnotations.TextAnnotation.class);
 				numbers.add(word);
 			}
 		}
 
 		try {
-			checkList(convo);
+			chooser(convo);
 		} catch (IOException | ParseException e) {
 			e.printStackTrace();
 		}
 
 		System.out.println(convo);
 		System.out.println(numbers);
+	}
+	
+	private static void chooser(List keyWords) throws FileNotFoundException, IOException, ParseException {
+		
+		Utility made = new Utility();
+		
+		JSONParser jsonparser = new JSONParser();
+
+		Object obj = jsonparser.parse(new FileReader(".\\jsonFile\\convoData.json"));
+		JSONObject keyWordsList = (JSONObject) obj;
+
+		List<String> elements = new ArrayList<>(keyWordsList.keySet());
+		
+		switch(made.switcher(elements, keyWords)) {
+		case "buy":System.out.println("buy");
+		break;
+		case "sell":System.out.println("sell");
+		break;
+		case "looking":System.out.println("looking");
+		break;
+		case "between":System.out.println("between");
+		break;
+		case "price":System.out.println("price");
+		break;
+		default:System.out.println("Sorry, i think we dont have that here");
+		}
+		
+		
 	}
 
 	private static void checkList(List keyWords) throws IOException, ParseException {
@@ -78,27 +105,20 @@ public class ChatBot {
 		for (int i = 0; i < elements.size(); i++) {
 
 			JSONObject array = (JSONObject) keyWordsList.get(elements.get(i));
-//			System.out.println(array);
 
 			List<String> layers = new ArrayList<>(array.keySet());
 
 			for (String key : layers) {
 
 				JSONArray jsonArray = (JSONArray) array.get(key);
-//				System.out.println("Array: " + jsonArray);
 
 				List<String> internal = jsonArray;
 				
 				if(keyWords.containsAll(internal)) {
-					System.out.println("true or false: "+array.get(i));
+					System.out.println("true or false: ");
 				}
-//				for (String finalWord : internal) {
-//					System.out.println(finalWord);
-//				}
 			}
-			System.out.println();
 		}
-
 	}
 }
 
@@ -111,4 +131,23 @@ class Utility {
 		return sender;
 	}
 
+	public String switcher(List<String> choices, List<String> text) {
+		String option = null;
+
+		for (String compare : choices) {
+			if (text.contains(compare)) {
+				if (text.contains("looking") && text.contains("between")) {
+					option = "between";
+				} else {
+					option = compare;
+				}
+			}
+		}
+
+		if (option != null) {
+			return option;
+		} else {
+			return "no";
+		}
+	}
 }

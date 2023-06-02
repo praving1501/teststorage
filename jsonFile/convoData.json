@@ -19,7 +19,9 @@
   	"fuel4": ["hybrid"]
   },
   "colour": {
-  	"colour1": [],
-  	"colour2": []
+  	"colour1": ["black"],
+  	"colour2": ["blue"],
+  	"colour3": ["white"],
+  	"colour4": ["red"]
   }
 }
